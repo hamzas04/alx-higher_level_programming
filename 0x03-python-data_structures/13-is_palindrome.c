@@ -1,4 +1,4 @@
-#include "lists.h.h"
+#include "lists.h"
 
 /**
  * Definition for singly-linked list.
