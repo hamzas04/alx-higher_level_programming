@@ -13,3 +13,7 @@ def simple_delete(a_dictionary, key=""):
     """
     if key in a_dictionary:
         del a_dictionary[key]
+def simple_delete(a_dictionary, key=""):
+    if isinstance(a_dictionary, dict) and key in a_dictionary:
+        del a_dictionary[key]
+    return (a_dictionary)
