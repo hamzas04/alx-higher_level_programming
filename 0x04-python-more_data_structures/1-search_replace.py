@@ -22,5 +22,4 @@ def search_replace(my_list, search, replace):
         else:
             # Keep the item unchanged
             new_list.append(item)
-
     return (new_list)
