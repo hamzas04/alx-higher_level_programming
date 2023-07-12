@@ -3,24 +3,18 @@
 Script that adds all arguments to a Python list, and then saves them to a file
 """
 
-import json
-import sys
-from os.path import exists
-from save_to_json_file import save_to_json_file
-from load_from_json_file import load_from_json_file
+from sys import argv
+save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
+load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 
-filename = 'add_item.json'
+filename = "add_item.json"
 
-# Check if the file exists
-if exists(filename):
-    # Load existing data from file
-    my_list = load_from_json_file(filename)
-else:
-    # Create an empty list if the file doesn't exist
-    my_list = []
+try:
+    json_list = load_from_json_file(filename)
+except FileNotFoundError:
+    json_list = []
 
-# Add arguments to the list
-my_list.extend(sys.argv[1:])
+for arg in argv[1:]:
+    json_list.append(arg)
 
-# Save the updated list to the file
-save_to_json_file(my_list, filename)
+save_to_json_file(json_list, filename)

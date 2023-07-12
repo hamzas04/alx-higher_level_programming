@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-"""This module defines a function 'load_from_json_file'"""
+"""
+function that creates an Object from JSON 
+"""
+
 import json
 
+
 def load_from_json_file(filename):
-    with open(filename, 'r') as file:
-        json_data = file.read()
-        obj = json.loads(json_data)
-        return obj
+    """crate and object from a "JSON file" """
+    with open(filename, 'r', encoding='utf-8') as f:
+        return json.load(f)
